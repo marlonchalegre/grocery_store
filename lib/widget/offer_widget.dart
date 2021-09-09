@@ -19,6 +19,7 @@ class OfferWidget extends StatelessWidget {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(GroceryColors.green),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
