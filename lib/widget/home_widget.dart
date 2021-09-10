@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/model/offer.dart';
 import 'package:grocery_store/util/colors.dart';
 import 'package:grocery_store/widget/offer_widget.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({Key? key}) : super(key: key);
+
+  static final offers = [
+    Offer(
+        name: "Organic Bananas",
+        description: "7pcs, Priceg",
+        price: 4.99,
+        imagePath: 'assets/images/banana.png'),
+    Offer(
+        name: "Apple",
+        description: "1Kg, Priceg",
+        price: 5.99,
+        imagePath: 'assets/images/apple.png'),
+    Offer(
+        name: "Ginger",
+        description: "250gm, Priceg",
+        price: 3.99,
+        imagePath: 'assets/images/ginger.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +73,17 @@ class HomeWidget extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Row(
-              children: [
-                OfferWidget(),
-                SizedBox(
-                  width: 10,
-                ),
-                OfferWidget(),
-              ],
+            Container(
+              height: 200,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return OfferWidget(
+                    offer: offers[index],
+                  );
+                },
+                itemCount: offers.length,
+                scrollDirection: Axis.horizontal,
+              ),
             )
           ],
         ),
