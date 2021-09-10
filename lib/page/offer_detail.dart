@@ -14,9 +14,7 @@ class _OfferDetailState extends State<OfferDetail> {
   final _controller = new TextEditingController();
 
   var count = 1;
-  var price = 2.99;
-  var totalCost = 2.99;
-
+  num totalCost = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +36,7 @@ class _OfferDetailState extends State<OfferDetail> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Nature Red Apple"),
+                Text(this.widget.offer.name),
                 Icon(
                   Icons.add_moderator_rounded,
                   color: Colors.black,
@@ -48,7 +46,7 @@ class _OfferDetailState extends State<OfferDetail> {
             SizedBox(
               height: 3,
             ),
-            Text("1kg, Price"),
+            Text(this.widget.offer.description),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -60,7 +58,7 @@ class _OfferDetailState extends State<OfferDetail> {
                           setState(() {
                             if (count > 1) {
                               count -= 1;
-                              totalCost = count * price;
+                              totalCost = count * this.widget.offer.price;
                             }
                           });
                         },
@@ -75,7 +73,7 @@ class _OfferDetailState extends State<OfferDetail> {
                         onPressed: () {
                           setState(() {
                             count += 1;
-                            totalCost = count * price;
+                            totalCost = count * this.widget.offer.price;
                           });
                           _controller.text = count.toString();
                         },
