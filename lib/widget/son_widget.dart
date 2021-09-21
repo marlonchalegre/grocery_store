@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+
 import 'package:grocery_store/controllers/son_controller.dart';
 
 class MeuFilho extends StatefulWidget {
   final MeuFilhoController controller;
+  final Function(String) onColorChanged;
 
-  MeuFilho({Key? key, required this.controller}) : super(key: key);
+  MeuFilho({
+    Key? key,
+    required this.controller,
+    required this.onColorChanged,
+  }) : super(key: key);
 
   @override
   _MeuFilhoState createState() => _MeuFilhoState();
 }
 
 class _MeuFilhoState extends State<MeuFilho> {
-  Color _color = Colors.red;
+  MaterialColor _color = Colors.red;
 
   @override
   void initState() {
@@ -21,6 +27,8 @@ class _MeuFilhoState extends State<MeuFilho> {
 
   void listenColorChange() {
     _color = this.widget.controller.color;
+    var result = _color == Colors.red ? "Vermelho" : "Azul";
+    this.widget.onColorChanged(result);
     setState(() {});
   }
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MeuFilhoController extends ChangeNotifier {
-  Color _color = Colors.amber;
+  MaterialColor _color = Colors.amber;
 
-  set color(Color color) {
+  set color(MaterialColor color) {
     this._color = color;
     this.notifyListeners();
   }
 
-  Color get color {
+  MaterialColor get color {
     return _color;
   }
 }
