@@ -27,7 +27,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.amber,
         backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType
+            .fixed, //this is necessary to avoid the items override the color definition
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.business_center_outlined),
