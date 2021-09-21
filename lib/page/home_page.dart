@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.business_center),
+            icon: Icon(Icons.business_center_outlined),
             label: "Shop",
           ),
           BottomNavigationBarItem(
