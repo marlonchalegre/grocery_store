@@ -35,8 +35,10 @@ class _OfferDetailState extends State<OfferDetail> {
         ),
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Container(
-          child: Image.asset("assets/images/header_app_icon.png"),
+        title: Center(
+          child: Container(
+            child: Image.asset("assets/images/header_app_icon.png"),
+          ),
         ),
       ),
       body: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/page/explore_page.dart';
 import 'package:grocery_store/page/parent_page.dart';
 import 'package:grocery_store/widget/home_widget.dart';
 
@@ -12,16 +13,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentScreen = 0;
 
-  final List<Widget> _screens = [HomeWidget(), MeuPai()];
+  final List<Widget> _screens = [HomeWidget(), ExplorerPage(), MeuPai()];
 
   @override
   Widget build(BuildContext context) {
+    final PageController controller = PageController(initialPage: 0);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Container(
-          child: Image.asset("assets/images/header_app_icon.png"),
+        title: Center(
+          child: Container(
+            child: Image.asset("assets/images/header_app_icon.png"),
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -54,11 +58,21 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _currentScreen,
         onTap: (index) => {
           setState(() {
+            controller.jumpToPage(index);
             _currentScreen = index;
           })
         },
       ),
-      body: _screens[_currentScreen],
+      body: PageView(
+        scrollDirection: Axis.horizontal,
+        controller: controller,
+        children: _screens,
+        onPageChanged: (page) {
+          setState(() {
+            _currentScreen = page;
+          });
+        },
+      ),
     );
   }
 }
