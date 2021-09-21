@@ -31,7 +31,7 @@ class OfferWidget extends StatelessWidget {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    _goToDetailPage(context);
+                    _goToDetailPage(context, offer);
                   },
                   child: Container(
                     width: 80,
@@ -81,14 +81,15 @@ class OfferWidget extends StatelessWidget {
     );
   }
 
-  void _goToDetailPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return OfferDetail(offer: offer);
-        },
-      ),
-    );
+  void _goToDetailPage(BuildContext context, Offer offer) {
+    Navigator.pushNamed(context, '/offerDetail', arguments: offer);
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) {
+    //       return OfferDetail(offer: offer);
+    //     },
+    //   ),
+    // );
   }
 
   TextStyle _textH2Style() {

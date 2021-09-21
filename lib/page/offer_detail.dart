@@ -3,8 +3,7 @@ import 'package:grocery_store/model/offer.dart';
 import 'package:grocery_store/util/colors.dart';
 
 class OfferDetail extends StatefulWidget {
-  final Offer offer;
-  OfferDetail({Key? key, required this.offer}) : super(key: key);
+  OfferDetail({Key? key}) : super(key: key);
 
   @override
   _OfferDetailState createState() => _OfferDetailState();
@@ -15,8 +14,20 @@ class _OfferDetailState extends State<OfferDetail> {
 
   var count = 1;
   num totalCost = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // totalCost = 0;
+    _controller.text = "1";
+  }
+
   @override
   Widget build(BuildContext context) {
+    final Offer offer = ModalRoute.of(context)!.settings.arguments as Offer;
+    // totalCost = offer.price;
+    //setState(() {});
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -36,7 +47,7 @@ class _OfferDetailState extends State<OfferDetail> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(this.widget.offer.name),
+                Text(offer.name),
                 Icon(
                   Icons.add_moderator_rounded,
                   color: Colors.black,
@@ -46,7 +57,7 @@ class _OfferDetailState extends State<OfferDetail> {
             SizedBox(
               height: 3,
             ),
-            Text(this.widget.offer.description),
+            Text(offer.description),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,27 +66,28 @@ class _OfferDetailState extends State<OfferDetail> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          setState(() {
-                            if (count > 1) {
-                              count -= 1;
-                              totalCost = count * this.widget.offer.price;
-                            }
-                          });
+                          if (count > 1) {
+                            count -= 1;
+                            totalCost = count * offer.price;
+                          }
+                          _controller.text = count.toString();
+                          setState(() {});
                         },
                         child: Text("-", style: TextStyle(fontSize: 40)),
                       ),
                       Container(
                         width: 50,
                         height: 50,
-                        child: Text("$count"),
+                        child: TextField(
+                          controller: _controller,
+                        ),
                       ),
                       TextButton(
                         onPressed: () {
-                          setState(() {
-                            count += 1;
-                            totalCost = count * this.widget.offer.price;
-                          });
+                          count += 1;
+                          totalCost = count * offer.price;
                           _controller.text = count.toString();
+                          setState(() {});
                         },
                         child: Text("+", style: TextStyle(fontSize: 30)),
                       ),

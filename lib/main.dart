@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/page/home_page.dart';
+import 'package:grocery_store/page/offer_detail.dart';
+import 'package:grocery_store/page/parent_page.dart';
 import 'package:grocery_store/util/colors.dart';
 
 void main() {
@@ -7,7 +9,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Gilroy',
       ),
-      home: HomePage(),
+      // home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/offerDetail': (context) => OfferDetail(),
+      },
     );
   }
 
