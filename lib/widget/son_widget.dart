@@ -26,6 +26,7 @@ class _MeuFilhoState extends State<MeuFilho> {
   }
 
   void listenColorChange() {
+    print("Changing");
     _color = this.widget.controller.color;
     var result = _color == Colors.red ? "Vermelho" : "Azul";
     this.widget.onColorChanged(result);

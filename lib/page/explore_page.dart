@@ -38,46 +38,28 @@ class ExplorerPage extends StatelessWidget {
                 children: [
                   CategoryWidget(
                     path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
+                    name: 'Fruits & Vegetable',
+                    borderColor: GroceryColors.greenx70,
+                    backgroundColor: GroceryColors.greenx10,
+                  ),
+                  CategoryWidget(
+                    path: 'assets/images/banana.png',
+                    name: 'Cooking',
+                    borderColor: GroceryColors.greenx70,
+                    backgroundColor: GroceryColors.greenx10,
+                  ),
+                  CategoryWidget(
+                    path: 'assets/images/ginger.png',
+                    name: 'Meat & Fish',
                     borderColor: GroceryColors.greenx70,
                     backgroundColor: GroceryColors.greenx10,
                   ),
                   CategoryWidget(
                     path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
+                    name: 'Beverages',
                     borderColor: GroceryColors.greenx70,
                     backgroundColor: GroceryColors.greenx10,
                   ),
-                  CategoryWidget(
-                    path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
-                    borderColor: GroceryColors.greenx70,
-                    backgroundColor: GroceryColors.greenx10,
-                  ),
-                  CategoryWidget(
-                    path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
-                    borderColor: GroceryColors.greenx70,
-                    backgroundColor: GroceryColors.greenx10,
-                  ),
-                  CategoryWidget(
-                    path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
-                    borderColor: GroceryColors.greenx70,
-                    backgroundColor: GroceryColors.greenx10,
-                  ),
-                  CategoryWidget(
-                    path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
-                    borderColor: GroceryColors.greenx70,
-                    backgroundColor: GroceryColors.greenx10,
-                  ),
-                  CategoryWidget(
-                    path: 'assets/images/apple.png',
-                    name: 'Frash Fruits & Vegetable',
-                    borderColor: GroceryColors.greenx70,
-                    backgroundColor: GroceryColors.greenx10,
-                  )
                 ],
               ),
             ),

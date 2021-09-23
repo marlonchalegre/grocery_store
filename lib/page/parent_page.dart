@@ -33,13 +33,17 @@ class _MeuPaiState extends State<MeuPai> {
             onColorChanged: (txt) {
               print("Muda para $txt");
               // buttonColor = txt;
-              // setState(() {});
+              setState(() {
+                buttonColor = txt;
+              });
             },
           ),
           ElevatedButton(
             onPressed: () {
               count++;
+              print("pressed $count");
               _controller.color = count % 2 == 0 ? Colors.blue : Colors.red;
+              setState(() {});
             },
             child: Text('Muda a cor para $buttonColor!'),
           ),

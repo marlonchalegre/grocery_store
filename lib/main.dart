@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_store/page/home_page.dart';
 import 'package:grocery_store/page/offer_detail.dart';
 import 'package:grocery_store/page/parent_page.dart';
+import 'package:grocery_store/page/products_page.dart';
 import 'package:grocery_store/util/colors.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/offerDetail': (context) => OfferDetail(),
+        '/productsList': (context) => ProductPage()
       },
     );
   }
