@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/page/home_page.dart';
+import 'package:grocery_store/page/http_sample.dart';
 import 'package:grocery_store/page/offer_detail.dart';
 import 'package:grocery_store/page/parent_page.dart';
 import 'package:grocery_store/page/products_page.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => SampleHttpPage(),
         '/offerDetail': (context) => OfferDetail(),
         '/productsList': (context) => ProductPage()
       },
