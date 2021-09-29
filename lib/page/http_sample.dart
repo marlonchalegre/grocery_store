@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/model/album.dart';
 import 'package:grocery_store/services/albums_service.dart';
+import 'package:grocery_store/widget/albums_grid.dart';
 
 class SampleHttpPage extends StatefulWidget {
   SampleHttpPage({Key? key}) : super(key: key);
@@ -13,13 +14,14 @@ class _SampleHttpPageState extends State<SampleHttpPage> {
   var albumService = AlbumService();
 
   late Future<Album> myAlbum;
+  late Future<List<Album>> allAlbums;
 
   var _controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    myAlbum = albumService.fetchAlbum(2);
+    allAlbums = albumService.fetchAllAlbums();
   }
 
   @override
@@ -40,15 +42,17 @@ class _SampleHttpPageState extends State<SampleHttpPage> {
           child: Column(
             children: [
               Container(
-                child: FutureBuilder<Album>(
-                  future: myAlbum,
+                child: FutureBuilder<List<Album>>(
+                  future: allAlbums,
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return CircularProgressIndicator();
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     } else {
-                      return Text('${snapshot.data!.title}');
+                      return Expanded(
+                        child: AlbumGridWidget(allAlbums: snapshot.data!),
+                      );
                     }
                   },
                 ),

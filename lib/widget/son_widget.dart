@@ -35,10 +35,30 @@ class _MeuFilhoState extends State<MeuFilho> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 200,
-      color: _color,
+    return Stack(
+      clipBehavior: Clip.antiAlias,
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        Container(
+          width: 200,
+          height: 200,
+          color: _color,
+        ),
+        Container(
+          width: 100,
+          height: 100,
+          color: Colors.blue,
+        ),
+        Positioned(
+          bottom: -30,
+          left: -30,
+          child: Container(
+            width: 50,
+            height: 50,
+            color: Colors.green,
+          ),
+        ),
+      ],
     );
   }
 }

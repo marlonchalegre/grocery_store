@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_store/controllers/son_controller.dart';
 import 'package:grocery_store/widget/son_widget.dart';
@@ -40,15 +43,39 @@ class _MeuPaiState extends State<MeuPai> {
           ),
           ElevatedButton(
             onPressed: () {
-              count++;
-              print("pressed $count");
-              _controller.color = count % 2 == 0 ? Colors.blue : Colors.red;
-              setState(() {});
+              showMyDialog(context);
             },
             child: Text('Muda a cor para $buttonColor!'),
           ),
         ],
       )),
     );
+  }
+
+  void showMyDialog(context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.lightBlue,
+      builder: (context) => AlertDialog(
+        title: Text("Título do Alerta"),
+        content: Text("Conteudo"),
+        actions: [
+          TextButton(
+            onPressed: () => apertouSim(),
+            child: Text("Sim"),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Não"),
+          )
+        ],
+      ),
+    );
+  }
+
+  apertouSim() {
+    print("Sim");
+    Navigator.pop(context);
   }
 }
